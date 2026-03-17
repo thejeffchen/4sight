@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tauri-apps/tauri/dev/crates/tauri-config-schema/schema.json",
+  "productName": "4sight",
+  "version": "0.1.0",
+  "identifier": "com.4sight.app",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "4sight",
+        "label": "main",
+        "width": 420,
+        "height": 700,
+        "minWidth": 360,
+        "minHeight": 400,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "resizable": true,
+        "x": 50,
+        "y": 100
+      }
+    ],
+    "macOSPrivateApi": true
+  },
+  "bundle": {
+    "icon": [
+      "icons/icon.icns",
+      "icons/icon.png"
+    ]
+  },
+  "plugins": {
+    "shell": {
+      "open": true
+    }
+  }
+}

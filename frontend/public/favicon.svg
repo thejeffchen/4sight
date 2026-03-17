@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- Dark background circle -->
+  <rect width="48" height="48" rx="12" fill="#0a0a0b"/>
+
+  <!-- Outer glow ring -->
+  <circle cx="24" cy="24" r="16" stroke="url(#glow)" stroke-width="1.5" fill="none" opacity="0.3"/>
+
+  <!-- Eye shape - outer -->
+  <path d="M6 24C6 24 13 12 24 12C35 12 42 24 42 24C42 24 35 36 24 36C13 36 6 24 6 24Z"
+        fill="none" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Iris circle -->
+  <circle cx="24" cy="24" r="8" fill="url(#grad2)" opacity="0.9"/>
+
+  <!-- Pupil with grid lines (spreadsheet reference) -->
+  <circle cx="24" cy="24" r="4" fill="#0a0a0b"/>
+
+  <!-- Grid lines inside iris -->
+  <line x1="24" y1="16.5" x2="24" y2="31.5" stroke="#0a0a0b" stroke-width="0.75" opacity="0.4"/>
+  <line x1="16.5" y1="24" x2="31.5" y2="24" stroke="#0a0a0b" stroke-width="0.75" opacity="0.4"/>
+
+  <!-- Inner highlight dot -->
+  <circle cx="24" cy="24" r="1.5" fill="#34d399"/>
+
+  <!-- Sparkle/glint -->
+  <circle cx="21" cy="21" r="1.2" fill="white" opacity="0.7"/>
+
+  <defs>
+    <linearGradient id="grad1" x1="6" y1="24" x2="42" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <radialGradient id="grad2" cx="24" cy="24" r="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="0.7" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="24" cy="24" r="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0.7" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

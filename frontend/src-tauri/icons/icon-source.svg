@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <!-- Full-bleed dark background (macOS will apply its own mask) -->
+  <rect width="1024" height="1024" fill="#0a0a0b"/>
+
+  <!-- Subtle radial glow behind the eye -->
+  <circle cx="512" cy="512" r="340" fill="url(#bgGlow)" opacity="0.5"/>
+
+  <!-- Outer glow ring -->
+  <circle cx="512" cy="512" r="280" stroke="url(#glowRing)" stroke-width="2.5" fill="none" opacity="0.25"/>
+
+  <!-- Eye shape - outer -->
+  <path d="M128 512C128 512 277 256 512 256C747 256 896 512 896 512C896 512 747 768 512 768C277 768 128 512 128 512Z"
+        fill="none" stroke="url(#eyeStroke)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Eye shape - subtle fill -->
+  <path d="M128 512C128 512 277 256 512 256C747 256 896 512 896 512C896 512 747 768 512 768C277 768 128 512 128 512Z"
+        fill="url(#eyeFill)" opacity="0.06"/>
+
+  <!-- Iris circle -->
+  <circle cx="512" cy="512" r="170" fill="url(#irisGrad)" opacity="0.9"/>
+
+  <!-- Iris ring detail -->
+  <circle cx="512" cy="512" r="170" stroke="url(#irisStroke)" stroke-width="3" fill="none" opacity="0.3"/>
+
+  <!-- Pupil -->
+  <circle cx="512" cy="512" r="85" fill="#0a0a0b"/>
+
+  <!-- Grid lines inside iris (spreadsheet reference) -->
+  <line x1="512" y1="350" x2="512" y2="674" stroke="#0a0a0b" stroke-width="12" opacity="0.35"/>
+  <line x1="350" y1="512" x2="674" y2="512" stroke="#0a0a0b" stroke-width="12" opacity="0.35"/>
+
+  <!-- Inner highlight dot -->
+  <circle cx="512" cy="512" r="32" fill="#34d399"/>
+  <circle cx="512" cy="512" r="32" fill="url(#dotGlow)" opacity="0.6"/>
+
+  <!-- Sparkle/glint -->
+  <circle cx="448" cy="448" r="24" fill="white" opacity="0.65"/>
+  <circle cx="448" cy="448" r="14" fill="white" opacity="0.9"/>
+
+  <!-- Secondary small glint -->
+  <circle cx="560" cy="580" r="8" fill="white" opacity="0.2"/>
+
+  <defs>
+    <radialGradient id="bgGlow" cx="512" cy="512" r="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10b981" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRing" cx="512" cy="512" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0.7" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="eyeStroke" x1="128" y1="512" x2="896" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="0.5" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="eyeFill" x1="128" y1="512" x2="896" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <radialGradient id="irisGrad" cx="512" cy="512" r="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="0.6" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </radialGradient>
+    <radialGradient id="irisStroke" cx="512" cy="512" r="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6ee7b7"/>
+      <stop offset="1" stop-color="#059669"/>
+    </radialGradient>
+    <radialGradient id="dotGlow" cx="512" cy="512" r="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6ee7b7"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
