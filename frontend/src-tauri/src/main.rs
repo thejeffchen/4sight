@@ -16,7 +16,11 @@ fn main() {
             let backend_dir = resolve_backend_dir();
 
             // Activate the venv and run uvicorn
+            #[cfg(target_os = "macos")]
             let venv_python = backend_dir.join(".venv/bin/python");
+
+            #[cfg(target_os = "windows")]
+            let venv_python = backend_dir.join(".venv/Scripts/python.exe");
             let child = Command::new(&venv_python)
                 .args(["-m", "uvicorn", "foresight.server:app", "--host", "127.0.0.1", "--port", "8742"])
                 .current_dir(&backend_dir)
@@ -59,5 +63,9 @@ fn resolve_backend_dir() -> std::path::PathBuf {
         .parent()
         .unwrap()
         .to_path_buf();
-    exe_dir.join("../Resources/backend")
+    #[cfg(target_os = "macos")]
+    { exe_dir.join("../Resources/backend") }
+
+    #[cfg(target_os = "windows")]
+    { exe_dir.join("../backend") }
 }
