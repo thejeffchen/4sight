@@ -6,8 +6,8 @@ from typing import Any
 from foresight.spreadsheet.interface import SpreadsheetInterface
 
 
-class ExcelMacInterface(SpreadsheetInterface):
-    """Excel on macOS via xlwings."""
+class ExcelInterface(SpreadsheetInterface):
+    """Excel via xlwings (macOS and Windows)."""
 
     def __init__(self):
         self._app = None
