@@ -16,5 +16,12 @@ pub fn configure_main_window(app: &App) -> Result<(), Box<dyn std::error::Error>
         let _ = window.emit("window-ready", ());
     }
 
+    #[cfg(target_os = "windows")]
+    {
+        use tauri::Emitter;
+        window.show()?;
+        let _ = window.emit("window-ready", ());
+    }
+
     Ok(())
 }

@@ -4,8 +4,14 @@ AI-powered desktop overlay for spreadsheet financial modeling. Chat with Claude 
 
 ## Quick Start
 
+**macOS:**
 ```bash
 cd financial-modeling && ./start.sh
+```
+
+**Windows:**
+```batch
+cd financial-modeling && start.bat
 ```
 
 That's it. Installs everything on first run, then launches the desktop overlay. The Python backend starts automatically in the background.
@@ -14,15 +20,15 @@ On first launch, 4sight will prompt you for your Anthropic API key right in the 
 
 ## Prerequisites
 
-- **macOS**
+- **macOS or Windows**
 - **Python 3.11+**
 - **Node.js 18+**
-- **Rust** (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`)
+- **Rust** (macOS: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` / Windows: [rustup.rs](https://rustup.rs/))
 - **Microsoft Excel**
 
 ## How It Works
 
-1. Open an Excel workbook on your Mac
+1. Open an Excel workbook
 2. Launch 4sight — it floats as an always-on-top overlay next to Excel
 3. Enter your API key on first launch (Settings tab to change later)
 4. Chat with Claude in the Chat tab — ask it to read or modify your spreadsheet
@@ -33,17 +39,18 @@ On first launch, 4sight will prompt you for your Anthropic API key right in the 
 
 | Layer | Technology |
 |-------|-----------|
-| Desktop | Tauri 2 (native macOS overlay) |
+| Desktop | Tauri 2 (native macOS/Windows overlay) |
 | Frontend | React, TypeScript, Vite, Tailwind CSS, Zustand |
 | Backend | Python, FastAPI, SQLAlchemy (async), SQLite |
 | AI | Anthropic Claude API |
-| Excel | xlwings (macOS) |
+| Excel | xlwings (macOS/Windows) |
 
 ## Project Structure
 
 ```
 financial-modeling/
-├── start.sh               # Installs dependencies + runs in browser mode
+├── start.sh               # macOS: installs dependencies + launches app
+├── start.bat              # Windows: installs dependencies + launches app
 ├── backend/
 │   └── foresight/
 │       ├── server.py      # FastAPI entry point (port 8742)

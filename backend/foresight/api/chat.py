@@ -6,19 +6,19 @@ from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
 import foresight.db.session as db
 from foresight.diff.tracker import DiffTracker
-from foresight.spreadsheet.excel_mac import ExcelMacInterface
+from foresight.spreadsheet.excel import ExcelInterface
 from foresight.agents.base import SpreadsheetAgent
 
 router = APIRouter()
 
 # Shared spreadsheet connection (one per backend process)
-_spreadsheet: ExcelMacInterface | None = None
+_spreadsheet: ExcelInterface | None = None
 
 
-async def get_spreadsheet() -> ExcelMacInterface:
+async def get_spreadsheet() -> ExcelInterface:
     global _spreadsheet
     if _spreadsheet is None:
-        _spreadsheet = ExcelMacInterface()
+        _spreadsheet = ExcelInterface()
         await _spreadsheet.connect()
     return _spreadsheet
 
