@@ -27,6 +27,27 @@ fn main() {
                 .spawn()
                 .expect("failed to start python backend — is the venv set up?");
 
+            #[cfg(target_os = "windows")]
+            {
+                use std::os::windows::io::AsRawHandle;
+                use windows_sys::Win32::System::JobObjects::*;
+
+                unsafe {
+                    let job = CreateJobObjectW(std::ptr::null(), std::ptr::null());
+                    let mut info: JOBOBJECT_EXTENDED_LIMIT_INFORMATION = std::mem::zeroed();
+                    info.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
+                    SetInformationJobObject(
+                        job,
+                        JobObjectExtendedLimitInformation,
+                        &info as *const _ as *const std::ffi::c_void,
+                        std::mem::size_of::<JOBOBJECT_EXTENDED_LIMIT_INFORMATION>() as u32,
+                    );
+                    AssignProcessToJobObject(job, child.as_raw_handle() as _);
+                }
+                // Job handle is leaked intentionally — it lives until the process exits,
+                // at which point Windows closes it and kills all assigned processes.
+            }
+
             app.manage(BackendProcess(Mutex::new(Some(child))));
 
             Ok(())
